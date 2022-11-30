@@ -5,6 +5,7 @@
 body{
     background-color: #131720;
     font-family: sans-serif;
+    color: white;
 }
 
 h3{
@@ -67,4 +68,8 @@ input{
     padding: 15px;
     text-align: center;
     background-color: #151f30;
+}
+
+a{
+    text-decoration: none;
 }

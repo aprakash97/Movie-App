@@ -7,6 +7,7 @@ const main = document.getElementById("section");
 const form = document.getElementById("form");
 const search = document.getElementById("query");
 
+returnMovies(API_LINK);
 
 function returnMovies(url){
     fetch(url).then(res => res.json())
@@ -32,7 +33,7 @@ function returnMovies(url){
 
             const center = document.createElement('center');
 
-            title.innerHTML= `${element.title}`;
+            title.innerHTML= `${element.title}<br> <a href="movie.html?id=${element.id}&title=${element.title}">reviews </a>`;
             let x = `${element.poster_path}`
             image.src = IMG_PATH + x;
             console.log(x);
