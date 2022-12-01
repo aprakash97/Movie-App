@@ -100,5 +100,14 @@ function saveReview(reviewInputId, userInputId, id=""){
              location.reload();
           })
     }
-    
+}
+
+function deleteReview(id){
+    fetch(API_LINK + id, {
+        method : 'DELETE'
+    }).then(res => res.json())
+      .then(res => {
+        console.log(res + " DELETED")
+        location.reload();
+      })
 }
