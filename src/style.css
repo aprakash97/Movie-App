@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+}
+
+#nav-bar {
+  display: flex;
+  justify-content: flex-end;
+  background-color: aqua;
+}
+
+#nav-bar a {
+  margin: 10px 10px;
+}
+
+#nav-bar a:hover {
+  color: yellow;
+}
+
+.search-params {
+  font-family: arial;
+  font-size: 24px;
+  margin: 25px;
+  width: 230px;
+  outline: dashed 1px black;
+  margin: 0 auto;
+}
