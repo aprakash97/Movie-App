@@ -11,19 +11,34 @@ const SearchParams = () => {
     
     useEffect(() => {
         requestSearch();
-    },[])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }) 
+    //empty array[] - will prevent requestSearch calling after its first time 
+    // It will wait until the user submit  
+    //If no empty array[] - if it detects anything ever changing and gets called
 
     async function requestSearch(){
         const API_KEY = "36aa0f5f49e955969097838d95356f6c";
         
-        const res = await fetch(
-            `https://api.themoviedb.org/3/search/movie?&api_key=${API_KEY}&query=${location}`);
-            const json = await res.json();
-            setResults(json.results);
+        //For further development - Normal display links 
+        if(location.length === 0){
+            // console.log("Called initially through hooks")
+            const res = await fetch(
+                `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`);
+                const json = await res.json();
+                setResults(json.results);
+        }else{
+                // console.log(result.length);
+            const res = await fetch(
+                `https://api.themoviedb.org/3/search/movie?&api_key=${API_KEY}&query=${location}`);
+                const json = await res.json();
+                setResults(json.results); //results and result are different
 
-            console.log(json.results)//ARRAYS
-            // console.log(search);
-    }
+    // console.log(json.results)//ARRAYS
+
+        }      
+
+            }
 
     return  (
         <div className="search-params">
